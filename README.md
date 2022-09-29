@@ -8,4 +8,4 @@
 - 공격과 채집을 통해 아이템을 획득, 인벤토리에서 확인할 수 있습니다.
 - '제작'에서 획득한 아이템을 이용해 제작을 할 수 있습니다. 제작된 물체는 House 앞에 생성됩니다. 
 
-
+![witch's house](https://user-images.githubusercontent.com/57720521/193014901-b9778ab6-a374-4104-a89b-d86f2af7e0b4.gif)
