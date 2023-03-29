@@ -8,6 +8,7 @@ public class MouseAimCamera : MonoBehaviour {
 	
 	void Start() {
 		offset = target.transform.position - transform.position;
+		
 	}
 	
 	void LateUpdate() {

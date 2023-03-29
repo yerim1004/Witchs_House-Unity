@@ -5,9 +5,10 @@ using UnityEngine;
 public class CollectEffect : MonoBehaviour
 {
     public GameObject EffectPrefab;
-
+    private GameObject effect;
     public void PlayEffect()
     {
-        Instantiate(EffectPrefab, transform.localPosition, Quaternion.identity);
+        effect = Instantiate(EffectPrefab, transform.localPosition, transform.localRotation);
+        Destroy(effect, 1);
     }
 }

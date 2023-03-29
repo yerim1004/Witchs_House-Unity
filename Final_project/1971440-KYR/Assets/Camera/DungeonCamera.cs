@@ -6,6 +6,7 @@ public class DungeonCamera : MonoBehaviour {
 	public float damping = 1;
 	Vector3 offset;
 
+	
 	void Start() {
 		offset = transform.position - target.transform.position;
 	}
@@ -17,4 +18,5 @@ public class DungeonCamera : MonoBehaviour {
 
 		transform.LookAt(target.transform.position);
 	}
+
 }

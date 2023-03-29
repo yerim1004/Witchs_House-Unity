@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    private Vector3 l_velocity;
     private Vector3 m_velocity;
     private Animator m_animator;
 
@@ -25,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Move();
+        PlayerLook();
 
         if (Input.GetKeyDown(KeyCode.G) && m_collectArea.collectAble) //채집가능 대상이 범위에 있으면서 G키를 누르면 채집
         {
@@ -39,20 +41,17 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         CharacterController controller = GetComponent<CharacterController>();
+        
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+
         m_velocity = new Vector3(h, 0, v);
         m_velocity = m_velocity.normalized;
 
         m_animator.SetFloat("Move", m_velocity.magnitude);
-
-        if (m_velocity.magnitude > 0.5)
-        {
-            transform.LookAt(transform.position + m_velocity);
-        }
-
+        
         m_velocity.y = 0; //점프없음
-        controller.Move(m_velocity * m_moveSpeed * Time.deltaTime);
+        controller.Move(transform.TransformDirection(m_velocity) * m_moveSpeed * Time.deltaTime);
     }
 
     public void Collect()
@@ -62,39 +61,21 @@ public class PlayerMove : MonoBehaviour
 
         if(m_collectArea.collect != null)
         {
-            Destroy(m_collectArea.collect);
+            m_collectArea.collect.GetComponentInParent<CollectCreate>().StartCoroutine("ReCreate"); //파괴되었음을 전달
             inven.transform.GetChild(0).GetComponent<ItemSave>().AddItem(collectItem, 1);
+            
+            Destroy(m_collectArea.collect);
+            m_collectArea.collect.GetComponent<CollectEffect>().PlayEffect();
+            m_collectArea.collect = null;
         }
         
-        //Vector3 center = Vector3.zero;
-        //int cnt = m_collectArea.colliders.Count;
-        //int cntBreak = 0;
-
-        //for (int i = 0; i < m_collectArea.colliders.Count; i++)
-        //{
-        //    var collider = m_collectArea.colliders[i];
-        //    center += collider.transform.localPosition;
-
-        //    var obj = collider.GetComponent<CollectArea>();
-        //    if (obj != null)
-        //    {
-        //        Destroy(obj);
-        //        inven.transform.GetChild(0).GetComponent<ItemSave>().AddItem(collectItem, 1);
-        //        Debug.Log("obj check");
-        //    }
-        //    else
-        //    {
-        //        Destroy(collider.gameObject);
-        //        Debug.Log("else");
-        //    }
-        //}
-        //if (cntBreak > 0) m_collectArea.colliders.Clear();
-
-        //center /= cnt;
-        //center.y = transform.localPosition.y;
-        //transform.LookAt(center);
-
-
     }
+    private float xRotate = 0;
+    private void PlayerLook()
+    {
+        xRotate = xRotate + Input.GetAxisRaw("Mouse X") * 3.5f;
 
+        transform.eulerAngles = new Vector3(0, xRotate, 0);
+    }
+    
 }

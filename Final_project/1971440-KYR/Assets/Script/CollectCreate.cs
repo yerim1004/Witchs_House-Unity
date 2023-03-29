@@ -5,26 +5,37 @@ using UnityEngine;
 public class CollectCreate : MonoBehaviour
 {
     public Transform pos;
-    public GameObject collect;
+    public GameObject collect_model;
+    private GameObject collect;
 
-    float timer;
-    int waitingTime = 10;
+    float waitingTime = 5.0f;
+    private bool destroy = false;
+    
 
     void Start()
     {
         pos = gameObject.transform;
-        timer = 0.0f;
-        Instantiate(collect, pos.position, pos.rotation);
+        StartCreate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > waitingTime && collect == false) //파괴되어서 객체가 없는 상태면
-        {
-            Instantiate(collect, pos.position, pos.rotation);
-            timer = 0.0f;
-        }
+        
+    }
+    IEnumerator ReCreate()
+    {
+        Debug.Log("채집 완");
+
+        yield return new WaitForSeconds(5.0f); //5초 기다리고 인스턴스 생성
+        
+        StartCreate();
+    }
+
+    void StartCreate()
+    {
+        collect = Instantiate(collect_model, pos.position, pos.rotation);
+        //부모를 지정해서 다른 스크립트에서 해당 스크립스 변수 참조를 가능하게 함
+        collect.transform.SetParent(gameObject.transform, true); //true는 월드기준, false는 부모기준 위치 지정...이라고 설명을 봤는데 반대 같음
     }
 }
