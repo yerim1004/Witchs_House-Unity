@@ -8,6 +8,13 @@ public class UIOnOff : MonoBehaviour
     
     public void ActiveSetting()
     {
-        UI.SetActive(!UI.active);
+        UI.SetActive(!UI.activeSelf);
+    }
+
+    public void LayoutSetting()
+    {
+        GameObject uiparent = UI.transform.parent.gameObject;
+
+        uiparent.transform.SetAsLastSibling();
     }
 }
