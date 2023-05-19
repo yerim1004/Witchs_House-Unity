@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 m_velocity;
     private Animator m_animator;
 
-    public Transform Energy; //¹ß»çÃ¼
+    public Transform Energy; //ë°œì‚¬ì²´
     public Transform SpawnPos;
 
     private CollectArea m_collectArea = null;
@@ -31,7 +31,7 @@ public class PlayerMove : MonoBehaviour
         Move();
         PlayerLook();
 
-        if (Input.GetKeyDown(KeyCode.G) && m_collectArea.collectAble) //Ã¤Áı°¡´É ´ë»óÀÌ ¹üÀ§¿¡ ÀÖÀ¸¸é¼­ GÅ°¸¦ ´©¸£¸é Ã¤Áı
+        if (Input.GetKeyDown(KeyCode.G) && m_collectArea.collectAble) //ì±„ì§‘ê°€ëŠ¥ ëŒ€ìƒì´ ë²”ìœ„ì— ìˆìœ¼ë©´ì„œ Gí‚¤ë¥¼ ëˆ„ë¥´ë©´ ì±„ì§‘
         {
             Collect();
         }
@@ -53,17 +53,17 @@ public class PlayerMove : MonoBehaviour
 
         m_animator.SetFloat("Move", m_velocity.magnitude);
         
-        m_velocity.y = 0; //Á¡ÇÁ¾øÀ½
+        m_velocity.y = 0; //ì í”„ì—†ìŒ
         controller.Move(transform.TransformDirection(m_velocity) * m_moveSpeed * Time.deltaTime);
     }
 
     public void Collect()
     {
-        m_animator.SetTrigger("Attack"); //Ã¤Áı°ú »ç³É ¸ğµÎ Attack ¸ğ¼ÇÀ¸·Î ÅëÀÏ
+        m_animator.SetTrigger("Attack"); //ì±„ì§‘ê³¼ ì‚¬ëƒ¥ ëª¨ë‘ Attack ëª¨ì…˜ìœ¼ë¡œ í†µì¼
 
         if(m_collectArea.collect != null)
         {
-            m_collectArea.collect.GetComponentInParent<CollectCreate>().StartCoroutine("ReCreate"); //ÆÄ±«µÇ¾úÀ½À» Àü´Ş
+            m_collectArea.collect.GetComponentInParent<CollectCreate>().StartCoroutine("ReCreate");
             GM.ItemAdd(collectItem, 1);
 
             Destroy(m_collectArea.collect);
