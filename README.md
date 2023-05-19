@@ -9,8 +9,10 @@
 - '제작'에서 획득한 아이템을 이용해 제작을 할 수 있습니다. 제작된 물체는 House 앞에 생성됩니다.
 - 도감에서 획득한 아이템을 확인할 수 있습니다.
 
-![witch's house](https://user-images.githubusercontent.com/57720521/193014901-b9778ab6-a374-4104-a89b-d86f2af7e0b4.gif)
 ![witch's house](https://github.com/yerim1004/Witchs_House-Unity/assets/57720521/4a010da4-cd80-4a4a-89ae-715219a45f8e)
+
+
+
 
 
 ### 스크립트 설명
