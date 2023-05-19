@@ -18,7 +18,7 @@
 ### 스크립트 설명
 
 #### GameController
-- [게임 시작 전 세팅을 위한 코드](https://github.com/yerim1004/Witchs_House-Unity/blob/c3e63068e87b48c2983ed4c46f8ff0807fba8599/Final_project/1971440-KYR/Assets/Script/PlayerScript/GameController.cs)
+- [게임 시작 전 세팅](https://github.com/yerim1004/Witchs_House-Unity/blob/c3e63068e87b48c2983ed4c46f8ff0807fba8599/Final_project/1971440-KYR/Assets/Script/PlayerScript/GameController.cs)을 위한 코드입니다.
 
 #### 플레이어
 - [이동](https://github.com/yerim1004/Witchs_House-Unity/blob/534fe8b923b5effec972befc7a2320a159de9403/Final_project/1971440-KYR/Assets/Script/PlayerMove.cs#L39)
@@ -41,8 +41,8 @@
 #### 도감
 - 구글 시트에서 가져온 [데이터를 리스트에 저장](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/Dictionary.cs#L70)합니다.
 - 저장된 데이터를 바탕으로 [도감 UI를 생성합니다](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/DictionaryItem.cs#L28).
-- 아이템을 획득하면 UI를 다시 그려줍니다. [Repaint 스크립트](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/DictionaryItem.cs#L109)
+- 아이템을 획득하면 UI를 다시 그려줍니다. [[Repaint 스크립트](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/DictionaryItem.cs#L109)]
 
 #### 몬스터 제작
-- 정해진 제작 순서로 아이템을 삽입하면 제작에 성공합니다. [제작 스크립트](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/MonsterMake.cs#L81)
+- 정해진 제작 순서로 아이템을 삽입하면 제작에 성공합니다. [[제작 스크립트](https://github.com/yerim1004/Witchs_House-Unity/blob/0d1436306b0127d2866a06a19167687bd7d12772/Final_project/1971440-KYR/Assets/Script/MonsterMake.cs#L81)]
 
